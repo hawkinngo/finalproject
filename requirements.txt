@@ -1,0 +1,4 @@
+scrapy==2.11.2
+pymongo
+pyspark
+findspark

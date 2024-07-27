@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  tiki_crawl:
+    image: tiki_image
+    container_name: tiki_crawl
+    environment:
+      - DBHOST=tiki_mongodb
+    networks:
+      - network_tiki_mongodb
+
+  tiki_mongodb:
+    image: mongo
+    container_name: tiki_mongodb
+    restart: always
+    networks:
+      - network_tiki_mongodb
+    ports:
+      - "27017:27017"
+
+  tiki_postgresql:
+    image: postgres
+    container_name: tiki_postgresql
+    restart: always
+    networks:
+      - network_tiki_mongodb
+    environment:
+          - POSTGRES_USER=admin
+          - POSTGRES_PASSWORD=admin
+          - POSTGRES_DB=tikidb
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      - network_tiki_mongodb
+    ports:
+      - 8080:8080
+
+
+networks:
+  network_tiki_mongodb:
+
