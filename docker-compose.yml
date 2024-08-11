@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   tiki_crawl:
-    image: tiki_image
+    image: tiki_crawl
     container_name: tiki_crawl
     environment:
       - DBHOST=tiki_mongodb
@@ -31,13 +31,13 @@ services:
     ports:
       - "5432:5432"
 
-  adminer:
-    image: adminer
-    restart: always
-    networks:
-      - network_tiki_mongodb
-    ports:
-      - 8080:8080
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   networks:
+  #     - network_tiki_mongodb
+  #   ports:
+  #     - 8888:8080
 
 
 networks:

@@ -20,7 +20,6 @@ class MongoPipeline:
         self.client = pymongo.MongoClient(f"mongodb://{os.environ['DBHOST']}:27017/")
         self.db = self.client["tikidb2"]
 
-        pass
 
     def process_item(self, item, spider):
 

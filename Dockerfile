@@ -7,4 +7,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["sh", "-c", "sleep 60 && python -m scrapy runspider finalproject/spiders/tikiapi.py"]
+CMD ["sh", "-c", "sleep 60 && python -m scrapy runspider finalproject/spiders/tikiphone.py"]
